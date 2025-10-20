@@ -1,0 +1,76 @@
+body{
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;      
+    margin: 0;
+}
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;  
+    align-items: flex-start; 
+    padding-top: 120px;
+}
+h1{
+    color: #f36432;
+    height: 100%;
+    margin: 0;
+    text-align: center;
+}
+fieldset{
+    background-color: whitesmoke;
+    border-radius: 10px;
+    width: 400px;
+    border: 2px solid #f36432;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin: 20px;
+}
+legend{
+    font-weight: bold;
+    color: #333;
+}
+div{
+    margin: 7px;
+}
+button{
+    cursor: pointer;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #f36432;
+    height: 3em;
+    width: 7em;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    margin: 0 10px 0 10px, auto;
+    justify-content: center;
+}
+.botones{
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+}
+input[type="radio"], input[type="checkbox"], select{
+    cursor: pointer;
+}
+footer{
+    color: #333;
+    font-style: italic;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px 0;
+    width: 100%;   
+}
+img{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 70px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
