@@ -1,0 +1,222 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f8fb;
+    color: #2e2e2e;
+}
+
+.app-header {
+    text-align: center;
+    padding: 3rem 1.5rem 2rem;
+    background: linear-gradient(135deg, #ffa751, #ffe259);
+    color: #1d1d1f;
+}
+
+.app-header h1 {
+    margin: 0 0 0.5rem;
+    font-size: 2.6rem;
+}
+
+.app-header p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.home {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.search-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.search-label {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.search-bar {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 999px;
+    padding: 0.35rem 0.6rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.search-bar input[type="search"] {
+    flex: 1;
+    border: none;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    background: transparent;
+    outline: none;
+    color: #333333;
+}
+
+.search-bar button {
+    border: none;
+    padding: 0.65rem 1.5rem;
+    border-radius: 999px;
+    background: #ff8140;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.search-bar button:hover {
+    background: #ff6a18;
+}
+
+.catalogue {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.catalogue h2 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.catalogue-hint {
+    margin: 0;
+    color: #666666;
+}
+
+.catalogue-scroller {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-height: 480px;
+    overflow-y: auto;
+    padding-right: 0.25rem;
+}
+
+.catalogue-scroller::-webkit-scrollbar {
+    width: 8px;
+}
+
+.catalogue-scroller::-webkit-scrollbar-track {
+    background: #eaeaea;
+    border-radius: 999px;
+}
+
+.catalogue-scroller::-webkit-scrollbar-thumb {
+    background: #ff9b63;
+    border-radius: 999px;
+}
+
+.recipe-block {
+    min-height: 180px;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.recipe-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.recipe-block h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
+
+.recipe-author {
+    margin: 0;
+    color: #777777;
+    font-size: 0.95rem;
+}
+
+.recipe-description {
+    margin: 0;
+    color: #4a4a4a;
+    font-size: 0.95rem;
+}
+
+.difficulty {
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.difficulty.easy {
+    background: rgba(82, 196, 26, 0.15);
+    color: #25782b;
+}
+
+.difficulty.medium {
+    background: rgba(255, 168, 0, 0.18);
+    color: #a96b00;
+}
+
+.difficulty.hard {
+    background: rgba(255, 77, 79, 0.18);
+    color: #a32224;
+}
+
+.app-footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: #ffffff;
+    border-top: 1px solid #ececec;
+    color: #7a7a7a;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .app-header {
+        padding: 2.5rem 1rem 1.5rem;
+    }
+
+    .app-header h1 {
+        font-size: 2rem;
+    }
+
+    .home {
+        padding: 1.5rem 1rem 3rem;
+    }
+
+    .search-bar {
+        padding: 0.3rem 0.5rem;
+    }
+}
+
+@media (max-width: 540px) {
+    .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 18px;
+    }
+
+    .search-bar button {
+        width: 100%;
+    }
+}

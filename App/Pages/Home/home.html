@@ -3,9 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
+    <link rel="stylesheet" href="home-styles.css">
 </head>
 <body>
-    
+    <header class="app-header">
+        <h1>RecetApp</h1>
+        <p>Encuentra inspiraci&oacute;n culinaria en segundos.</p>
+    </header>
+    <main class="home">
+        <section class="search-section">
+            <label class="search-label" for="home-search">Busca tu pr&oacute;xima receta</label>
+            <div class="search-bar">
+                <input id="home-search" type="search" placeholder="Buscar recetas, autores o ingredientes" aria-label="Buscar recetas">
+                <button type="button">Buscar</button>
+            </div>
+        </section>
+        <section class="catalogue">
+            <h2>Cat&aacute;logo destacado</h2>
+            <p class="catalogue-hint">Despl&aacute;zate hacia abajo para explorar recetas agrupadas por estilo y dificultad.</p>
+            <div class="catalogue-scroller" role="list">
+                <article class="recipe-block" role="listitem">
+                    <div class="recipe-header">
+                        <h3>Ensalada Mediterr&aacute;nea</h3>
+                        <span class="difficulty easy">F&aacute;cil</span>
+                    </div>
+                    <p class="recipe-author">por Laura Campos</p>
+                    <p class="recipe-description">Crujiente, fresca y lista en menos de 15 minutos.</p>
+                </article>
+                <article class="recipe-block" role="listitem">
+                    <div class="recipe-header">
+                        <h3>Tacos de Portobello</h3>
+                        <span class="difficulty medium">Media</span>
+                    </div>
+                    <p class="recipe-author">por Chef Mateo</p>
+                    <p class="recipe-description">Hongos marinados con salsas caseras al estilo street food.</p>
+                </article>
+                <article class="recipe-block" role="listitem">
+                    <div class="recipe-header">
+                        <h3>Ramen Umami</h3>
+                        <span class="difficulty hard">Dif&iacute;cil</span>
+                    </div>
+                    <p class="recipe-author">por Akira Sato</p>
+                    <p class="recipe-description">Caldo casero de larga cocci&oacute;n con toppings personalizados.</p>
+                </article>
+                <article class="recipe-block" role="listitem">
+                    <div class="recipe-header">
+                        <h3>Galette de Manzana</h3>
+                        <span class="difficulty medium">Media</span>
+                    </div>
+                    <p class="recipe-author">por Ana Karla</p>
+                    <p class="recipe-description">Hojaldre r&uacute;stico con fruta caramelizada y toque de canela.</p>
+                </article>
+                <article class="recipe-block" role="listitem">
+                    <div class="recipe-header">
+                        <h3>Shakshuka Picante</h3>
+                        <span class="difficulty easy">F&aacute;cil</span>
+                    </div>
+                    <p class="recipe-author">por Samir Abdel</p>
+                    <p class="recipe-description">Huevos al horno en salsa de tomate con especias arom&aacute;ticas.</p>
+                </article>
+                <article class="recipe-block" role="listitem">
+                    <div class="recipe-header">
+                        <h3>Risotto de Setas</h3>
+                        <span class="difficulty hard">Dif&iacute;cil</span>
+                    </div>
+                    <p class="recipe-author">por Isabella Rossi</p>
+                    <p class="recipe-description">Textura cremosa con caldo de vegetales y parmesano a&ntilde;ejo.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer class="app-footer">
+        <small>&copy; 2025 RecetApp. Todos los derechos reservados.</small>
+    </footer>
 </body>
 </html>
