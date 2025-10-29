@@ -5,7 +5,6 @@ const uploadbtn = document.getElementById("uploadbtn");
 const profilebtn = document.getElementById("profilebtn");
 
 function CambiarRuta(ruta){
-
     const mainFrame = parent.document.getElementById("mainFrame");
     mainFrame.src = ruta;
 }
