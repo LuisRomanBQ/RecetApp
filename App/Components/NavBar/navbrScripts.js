@@ -9,8 +9,8 @@ function CambiarRuta(ruta){
     mainFrame.src = ruta;
 }
 
-homebtn.addEventListener("click", ()=> CambiarRuta("Pages/Home/home.html"));
-menubtn.addEventListener("click", ()=> CambiarRuta("Pages/Menu/menu.html"));
-shoppingbtn.addEventListener("click", ()=> CambiarRuta("Pages/Checklist/checklist.html"));
-uploadbtn.addEventListener("click", ()=> CambiarRuta("Pages/Upload/upload.html"));
-profilebtn.addEventListener("click", ()=> CambiarRuta("Pages/Profile/profile.html"));
+homebtn.addEventListener("click", ()=> CambiarRuta("App/Pages/Home/home.html"));
+menubtn.addEventListener("click", ()=> CambiarRuta("App/Pages/Menu/menu.html"));
+shoppingbtn.addEventListener("click", ()=> CambiarRuta("App/Pages/Checklist/checklist.html"));
+uploadbtn.addEventListener("click", ()=> CambiarRuta("App/Pages/Upload/upload.html"));
+profilebtn.addEventListener("click", ()=> CambiarRuta("App/Pages/Profile/profile.html"));
