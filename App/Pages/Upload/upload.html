@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="uploadStyles.css">
+    <script src="uploadScripts.js" defer></script>
+</head>
+<body>
+    <form action="" id="uploadform" method="get" enctype="multipart/form-data">
+    
+        <div class="Titulo">
+            <h1>Subir Receta</h1>
+            <button id="viewbtn">
+                <label>Subir</label>
+                <img src="" alt="">
+            </button>
+            <button id="publishbtn">
+                <label>Vista Previa</label>
+                <img src="" alt="">
+            </button>
+        </div>
+
+        <fieldset>
+            <legend>Fotos y videos</legend>
+
+            <div id="uploaddiv">
+                <label for="mainfoto">Selecciona la foto principal</label>
+                <input type="file" accept="image/*"> <br>
+                <Label for="video">Selecione el video (opcional)</Label>
+                <input type="file" accept="video/*">
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Informacion basica</legend>
+
+            <div id="TextDiv">
+                <label for="Titulo">Titulo</label>
+                <input type="text" id="Titulo" placeholder="Ingrese el titulo de su receta.."> <br>
+                <label for="Descripcion">Descripcion</label>
+                <input type="text" placeholder="Describe brevemente tu receta...">
+            </div>
+            <div id="PickerDiv">
+
+                <label for="Tiempo">Tiempo (minutos)</label>
+                <input type="number" id="Tiempo">
+
+                <label for="Porciones">Porciones</label>
+                <select name="porciones" id="porcionesSelect">
+                    <option value="1">1 persona</option>
+                    <option value="2">2 personas</option>
+                    <option value="4">4 personas</option>
+                    <option value="6">6 personas</option>
+                    <option value="8">8 personas</option>
+                </select>
+                
+                <label for="Dificultad">Dificultad</label>
+                <select name="Dificultad" id="Dificultad">
+                    <option value="facil">Facil</option>
+                    <option value="medio">Media</option>
+                    <option value="dificil">Dificil</option>
+                </select>
+
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Ingredientes</legend>
+        
+            <table id="ingredienteTabla">
+
+            </table>
+
+            <div id="ingredientinfo">
+                <input type="text" name="ingrediente" id="ingrediente" placeholder="ingrediente">
+                <input type="text" name="cantidad" id="cantidad" placeholder="cantidad (ej 1 pz; 100 ml)">
+                <label for="sustituto">Sustituto</label>
+                <input type="checkbox" id="sustituto" name="sustituto"> 
+                <button>
+                    <img src="" alt="">
+                    <label>Agregar</label>
+                </button>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Pasos De Preparacion</legend>
+
+            <div id="algoritmoDiv">
+                <table id="algoritmoTable">
+
+                </table>
+
+                <input type="text" name="paso" id="paso" placeholder="Describe el siguiente paso...">
+                <button>
+                    <img src="" alt="">
+                    <label>Agregar Paso</label>
+                </button>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Etiquetas</legend>
+            <div id="Etiquetas">
+                <table id="etiquetasTabla">
+
+                </table>
+
+                <label for="Sugerencias">Sugerencias:</label>
+                <table id="sugerenciasTabla">
+
+                </table>
+            </div>
+        </fieldset>
+
+    </form>
+</body>
+</html>
