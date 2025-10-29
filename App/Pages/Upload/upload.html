@@ -3,37 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/RecetApp/App/Css/bootstrap.min.css">
     <link rel="stylesheet" href="uploadStyles.css">
     <script src="uploadScripts.js" defer></script>
 </head>
 <body>
     <form action="" id="uploadform" method="get" enctype="multipart/form-data">
     
-        <div class="Titulo">
-            <h1>Subir Receta</h1>
-            <button id="viewbtn">
-                <label>Subir</label>
-                <img src="" alt="">
-            </button>
-            <button id="publishbtn">
-                <label>Vista Previa</label>
-                <img src="" alt="">
-            </button>
+        <div class="container-fluid py-5 bg-light">
+            <div class="row">
+                <div class="col-6 col-md-8">
+                    <h1>Subir Receta</h1>
+                </div>
+                <div class="col-3 col-md-2">
+                    <button id="viewbtn">                
+                        <label>Subir</label>
+                        <img src="/RecetApp/App/Img/002-upload.png" alt="">
+                    </button>
+                </div>
+                <div class="col-3 col-md-2">
+                    <button id="publishbtn">
+                        <label>Vista Previa</label>
+                        <img src="/RecetApp/App/Img/001-watch.png" alt="">
+                    </button>
+                </div>
+                    
+
+            </div>
+            
         </div>
 
-        <fieldset>
+        <fieldset class="container my-5 py-4 bg-light">
             <legend>Fotos y videos</legend>
-
-            <div id="uploaddiv">
-                <label for="mainfoto">Selecciona la foto principal</label>
-                <input type="file" accept="image/*"> <br>
-                <Label for="video">Selecione el video (opcional)</Label>
-                <input type="file" accept="video/*">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <label for="mainfoto">Selecciona la foto principal</label>
+                    <input type="file" accept="image/*"> <br>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <Label for="video">Selecione el video (opcional)</Label>
+                    <input type="file" accept="video/*">
+                </div>
             </div>
+
+            
 
         </fieldset>
 
-        <fieldset>
+        <fieldset class="container my-5 bg-light">
             <legend>Informacion basica</legend>
 
             <div id="TextDiv">
@@ -66,42 +83,57 @@
             </div>
         </fieldset>
 
-        <fieldset>
+        <fieldset class="container my-5 bg-light">
             <legend>Ingredientes</legend>
-        
-            <table id="ingredienteTabla">
+            <div class="row">
+                <table id="ingredienteTabla">
 
-            </table>
+                </table>
 
-            <div id="ingredientinfo">
-                <input type="text" name="ingrediente" id="ingrediente" placeholder="ingrediente">
-                <input type="text" name="cantidad" id="cantidad" placeholder="cantidad (ej 1 pz; 100 ml)">
-                <label for="sustituto">Sustituto</label>
-                <input type="checkbox" id="sustituto" name="sustituto"> 
-                <button>
-                    <img src="/RecetApp/App/Img/002-add.png" alt="">
-                    <label>Agregar</label>
-                </button>
+                <div class="col-4" id="ingredientinfo">
+                    <input type="text" name="ingrediente" id="ingrediente" placeholder="ingrediente">
+                </div>
+                <div class="col-4">
+                    <input type="text" name="cantidad" id="cantidad" placeholder="cantidad (ej 1 pz; 100 ml)">
+                </div>
+                <div class="col-4">
+                    <label for="sustituto">Sustituto</label>
+                    <input type="checkbox" id="sustituto" name="sustituto"> 
+                </div>
+                <div class="ms-auto col-sm-2 col-md-1">
+                    <button>
+                        <img src="/RecetApp/App/Img/002-add.png" alt="">
+                        <label>Agregar</label>
+                    </button>
+                </div>
             </div>
         </fieldset>
 
-        <fieldset>
+        <fieldset class="container my-5 bg-light">
             <legend>Pasos De Preparacion</legend>
+            <div class="row">
+                <div class="col-6">
+                    <input type="text" name="paso" id="paso" placeholder="Describe el siguiente paso...">
+                </div>
+                <div class="col-6">
+                <button>
+                    <img src="/RecetApp/App/Img/002-add.png" alt="">
+                    <label>Agregar Paso</label>
+                </button>
+                </div>
+            </div>
 
             <div id="algoritmoDiv">
                 <table id="algoritmoTable">
 
                 </table>
 
-                <input type="text" name="paso" id="paso" placeholder="Describe el siguiente paso...">
-                <button>
-                    <img src="/RecetApp/App/Img/002-add.png" alt="">
-                    <label>Agregar Paso</label>
-                </button>
+                
+
             </div>
         </fieldset>
 
-        <fieldset>
+        <fieldset class="container my-5 bg-light">
             <legend>Etiquetas</legend>
             <div id="Etiquetas">
                 <table id="etiquetasTabla">
