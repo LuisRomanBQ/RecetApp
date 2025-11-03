@@ -1,152 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/RecetApp/App/Css/bootstrap.min.css">
-    <link rel="stylesheet" href="uploadStyles.css">
-    <script src="uploadScripts.js" defer></script>
-</head>
-<body>
-    <form action="" id="uploadform" method="get" enctype="multipart/form-data">
-    
-        <div class="container-fluid py-5 bg-light">
-            <div class="row">
-                <div class="col-6 col-md-8">
-                    <h1>Subir Receta</h1>
-                </div>
-                <div class="col-3 col-md-2">
-                    <button id="viewbtn">                
-                        <label>Subir</label>
-                        <img src="/RecetApp/App/Img/002-upload.png" alt="">
-                    </button>
-                </div>
-                <div class="col-3 col-md-2">
-                    <button id="publishbtn">
-                        <label>Vista Previa</label>
-                        <img src="/RecetApp/App/Img/001-watch.png" alt="">
-                    </button>
-                </div>
-                    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subir Receta</title>
 
-            </div>
-            
+  <link rel="stylesheet" href="/RecetApp/App/Css/bootstrap.min.css" />
+
+  <link rel="stylesheet" href="uploadStyles.css" />
+
+  <script src="uploadScripts.js" defer></script>
+</head>
+<body class="bg-light">
+  <form id="uploadform" method="post" enctype="multipart/form-data">
+
+    <div class="container-fluid py-4 bg-white shadow-sm mb-4">
+      <div class="row align-items-center">
+        <div class="col-md-8 col-12">
+          <h1 class="fw-bold text-dark">Subir Receta</h1>
         </div>
 
-        <fieldset class="container my-5 py-4 bg-light">
-            <legend>Fotos y videos</legend>
-            <div class="row">
-                <div class="col-sm-12 col-md-6">
-                    <label for="mainfoto">Selecciona la foto principal</label>
-                    <input type="file" accept="image/*"> <br>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                    <Label for="video">Selecione el video (opcional)</Label>
-                    <input type="file" accept="video/*">
-                </div>
-            </div>
+        <div class="col-md-2 col-6 d-flex justify-content-end">
+          <button type="button" class="btn-app">
+            <img src="/RecetApp/App/Img/002-upload.png" alt="">
+            <span>Subir</span>
+          </button>
+        </div>
+        <div class="col-md-2 col-6 d-flex justify-content-end">
+          <button type="button" class="btn-app">
+            <img src="/RecetApp/App/Img/001-watch.png" alt="">
+            <span>Vista Previa</span>
+          </button>
+        </div>
+      </div>
+    </div>
 
-            
+    <fieldset class="container my-4 py-4 bg-white rounded shadow-sm">
+      <legend>Fotos y videos</legend>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="mainfoto" class="form-label">Selecciona la foto principal</label>
+          <input type="file" id="mainfoto" accept="image/*" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label for="video" class="form-label">Selecciona el video (opcional)</label>
+          <input type="file" id="video" accept="video/*" class="form-control">
+        </div>
+      </div>
+    </fieldset>
 
-        </fieldset>
+    <fieldset class="container my-4 py-4 bg-white rounded shadow-sm">
+      <legend>Información básica</legend>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="Titulo" class="form-label">Título</label>
+          <input type="text" id="Titulo" class="form-control" placeholder="Ingrese el título de su receta...">
+        </div>
+        <div class="col-md-6">
+          <label for="Descripcion" class="form-label">Descripción</label>
+          <input type="text" id="Descripcion" class="form-control" placeholder="Describe brevemente tu receta...">
+        </div>
 
-        <fieldset class="container my-5 bg-light">
-            <legend>Informacion basica</legend>
+        <div class="col-md-4">
+          <label for="Tiempo" class="form-label">Tiempo (minutos)</label>
+          <input type="number" id="Tiempo" class="form-control">
+        </div>
+        <div class="col-md-4">
+          <label for="porcionesSelect" class="form-label">Porciones</label>
+          <select id="porcionesSelect" class="form-control">
+            <option value="1">1 persona</option>
+            <option value="2">2 personas</option>
+            <option value="4">4 personas</option>
+            <option value="6">6 personas</option>
+            <option value="8">8 personas</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="Dificultad" class="form-label">Dificultad</label>
+          <select id="Dificultad" class="form-control">
+            <option value="facil">Fácil</option>
+            <option value="media">Media</option>
+            <option value="dificil">Difícil</option>
+          </select>
+        </div>
+      </div>
+    </fieldset>
 
-            <div id="TextDiv">
-                <label for="Titulo">Titulo</label>
-                <input type="text" id="Titulo" placeholder="Ingrese el titulo de su receta.."> <br>
-                <label for="Descripcion">Descripcion</label>
-                <input type="text" placeholder="Describe brevemente tu receta...">
-            </div>
-            <div id="PickerDiv">
+    <fieldset class="container my-4 py-4 bg-white rounded shadow-sm">
+      <legend>Ingredientes</legend>
 
-                <label for="Tiempo">Tiempo (minutos)</label>
-                <input type="number" id="Tiempo">
+      <div id="ingredientesContainer" class="d-flex flex-wrap gap-3 mb-3">
 
-                <label for="Porciones">Porciones</label>
-                <select name="porciones" id="porcionesSelect">
-                    <option value="1">1 persona</option>
-                    <option value="2">2 personas</option>
-                    <option value="4">4 personas</option>
-                    <option value="6">6 personas</option>
-                    <option value="8">8 personas</option>
-                </select>
-                
-                <label for="Dificultad">Dificultad</label>
-                <select name="Dificultad" id="Dificultad">
-                    <option value="facil">Facil</option>
-                    <option value="medio">Media</option>
-                    <option value="dificil">Dificil</option>
-                </select>
+      </div>
 
-            </div>
-        </fieldset>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <input type="text" id="ingrediente" class="form-control" placeholder="Ingrediente">
+        </div>
+        <div class="col-md-4">
+          <input type="text" id="cantidad" class="form-control" placeholder="Cantidad (ej. 1 pz, 100 ml)">
+        </div>
+        <section class="col-md-4">
+            <label>¿Sustituto?</label>
+            <label class="switch">
+                <input type="checkbox" id="sustitutoSwitch">
+                <span class="slider"></span>
+            </label>
+        </section>
 
-        <fieldset class="container my-5 bg-light">
-            <legend>Ingredientes</legend>
-            <div class="row">
-                <table id="ingredienteTabla">
+        <div class="col-md-2 text-end">
+          <button type="button" id="agregarIngredienteBtn" class="btn-app">
+            <img src="/RecetApp/App/Img/002-add.png" alt="">
+            <span>Agregar</span>
+          </button>
+        </div>
+        
+      </div>
+    </fieldset>
 
-                </table>
+    <fieldset class="container my-4 py-4 bg-white rounded shadow-sm">
+      <legend>Pasos de preparación</legend>
 
-                <div class="col-4" id="ingredientinfo">
-                    <input type="text" name="ingrediente" id="ingrediente" placeholder="ingrediente">
-                </div>
-                <div class="col-4">
-                    <input type="text" name="cantidad" id="cantidad" placeholder="cantidad (ej 1 pz; 100 ml)">
-                </div>
-                <div class="col-4">
-                    <label for="sustituto">Sustituto</label>
-                    <input type="checkbox" id="sustituto" name="sustituto"> 
-                </div>
-                <div class="ms-auto col-sm-2 col-md-1">
-                    <button>
-                        <img src="/RecetApp/App/Img/002-add.png" alt="">
-                        <label>Agregar</label>
-                    </button>
-                </div>
-            </div>
-        </fieldset>
+      <div id="pasosContainer" class="d-flex flex-column gap-3 mb-3">
 
-        <fieldset class="container my-5 bg-light">
-            <legend>Pasos De Preparacion</legend>
-            <div class="row">
-                <div class="col-6">
-                    <input type="text" name="paso" id="paso" placeholder="Describe el siguiente paso...">
-                </div>
-                <div class="col-6">
-                <button>
-                    <img src="/RecetApp/App/Img/002-add.png" alt="">
-                    <label>Agregar Paso</label>
-                </button>
-                </div>
-            </div>
+      </div>
 
-            <div id="algoritmoDiv">
-                <table id="algoritmoTable">
+      <div class="row g-3">
+        <div class="col-md-10">
+          <input type="text" id="paso" class="form-control" placeholder="Describe el siguiente paso...">
+        </div>
+        <div class="col-md-2 text-end">
+          <button type="button" id="agregarPasoBtn" class="btn-app">
+            <img src="/RecetApp/App/Img/002-add.png" alt="">
+            <span>Agregar Paso</span>
+          </button>
+        </div>
+      </div>
+    </fieldset>
 
-                </table>
 
-                
-
-            </div>
-        </fieldset>
-
-        <fieldset class="container my-5 bg-light">
-            <legend>Etiquetas</legend>
-            <div id="Etiquetas">
-                <table id="etiquetasTabla">
-
-                </table>
-
-                <label for="Sugerencias">Sugerencias:</label>
-                <table id="sugerenciasTabla">
-
-                </table>
-            </div>
-        </fieldset>
-
-    </form>
+    <fieldset class="container my-4 py-4 bg-white rounded shadow-sm">
+      <legend>Etiquetas</legend>
+      <div id="Etiquetas">
+        <table id="etiquetasTabla" class="table table-striped"></table>
+        <label for="Sugerencias" class="form-label">Sugerencias:</label>
+        <table id="sugerenciasTabla" class="table table-hover"></table>
+      </div>
+    </fieldset>
+  </form>
 </body>
 </html>
