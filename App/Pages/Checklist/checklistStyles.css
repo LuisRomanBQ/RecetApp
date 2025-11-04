@@ -1,0 +1,278 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f8fb;
+    color: #2e2e2e;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header {
+    text-align: center;
+    padding: 2.5rem 1.5rem 1.5rem;
+    background: linear-gradient(135deg, #ffa751, #ffe259);
+    color: #1d1d1f;
+}
+
+.app-header h1 {
+    margin: 0 0 0.5rem;
+    font-size: 2.2rem;
+}
+
+.app-header p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.checklist-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    flex: 1;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.25rem;
+    background: #ffffff;
+    color: #ff8140;
+    border: 2px solid #ff8140;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 2rem;
+}
+
+.back-button:hover {
+    background: #ff8140;
+    color: #ffffff;
+    transform: translateX(-4px);
+}
+
+.recipe-info {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 1.75rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+.recipe-info h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.8rem;
+    color: #1d1d1f;
+}
+
+.recipe-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.recipe-author {
+    color: #777777;
+    font-size: 0.95rem;
+}
+
+.difficulty {
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.difficulty.easy {
+    background: rgba(82, 196, 26, 0.15);
+    color: #25782b;
+}
+
+.difficulty.medium {
+    background: rgba(255, 168, 0, 0.18);
+    color: #a96b00;
+}
+
+.difficulty.hard {
+    background: rgba(255, 77, 79, 0.18);
+    color: #a32224;
+}
+
+.ingredients-section {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 1.75rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.ingredients-section h3 {
+    margin: 0 0 1.5rem;
+    font-size: 1.5rem;
+    color: #1d1d1f;
+}
+
+.ingredients-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.ingredient-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f8fb;
+    border-radius: 12px;
+    transition: all 0.2s ease-in-out;
+}
+
+.ingredient-item:hover {
+    background: #f0f0f5;
+}
+
+.ingredient-item.checked {
+    background: rgba(82, 196, 26, 0.08);
+}
+
+.ingredient-item input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    accent-color: #52c41a;
+    border-radius: 4px;
+}
+
+.ingredient-item label {
+    flex: 1;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #2e2e2e;
+    user-select: none;
+}
+
+.ingredient-item.checked label {
+    text-decoration: line-through;
+    color: #888888;
+}
+
+.checklist-stats {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #f0f0f5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.progress-text {
+    font-size: 1rem;
+    color: #666666;
+}
+
+.progress-text strong {
+    color: #ff8140;
+    font-size: 1.1rem;
+}
+
+.progress-bar-container {
+    flex: 1;
+    min-width: 200px;
+    height: 12px;
+    background: #e0e0e0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #52c41a, #73d13d);
+    border-radius: 999px;
+    transition: width 0.3s ease-in-out;
+    width: 0%;
+}
+
+.app-footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: #ffffff;
+    border-top: 1px solid #ececec;
+    color: #7a7a7a;
+    font-size: 0.85rem;
+    margin-top: auto;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 1.5rem;
+}
+
+.empty-state h3 {
+    color: #666666;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    color: #999999;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .app-header {
+        padding: 2rem 1rem 1.25rem;
+    }
+
+    .app-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .checklist-container {
+        padding: 1.5rem 1rem 3rem;
+    }
+
+    .recipe-info,
+    .ingredients-section {
+        padding: 1.5rem;
+    }
+
+    .recipe-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .ingredients-section h3 {
+        font-size: 1.3rem;
+    }
+
+    .checklist-stats {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .progress-bar-container {
+        order: -1;
+    }
+}
+
+@media (max-width: 480px) {
+    .ingredient-item {
+        padding: 0.85rem;
+    }
+
+    .ingredient-item label {
+        font-size: 0.95rem;
+    }
+}
