@@ -6,11 +6,11 @@ const loginbtn = document.getElementById("loginbtn");
 loginbtn.addEventListener("click", () =>{
     
     if(BuscarEmail() && validarPassword()){
-        console.log("Inicio de sesión Exitoso");
-        window.location.href = "/RecetApp/Index.html";
+        alert("Inicio de sesión Exitoso");
+        window.location.href = "/Index.html";
     }
     else{
-        console.log("Usuario/Contraseña Incorrectos");
+        alert("Usuario/Contraseña Incorrectos");
     }
 });
 function BuscarEmail(){
