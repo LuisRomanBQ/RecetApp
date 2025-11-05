@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración</title>
+    <link rel="stylesheet" href="configuracionStyles.css"> 
+</head>
+<body>
+    
+    <h1>Configuración</h1>
+    <a href="#" onclick="history.back()">
+        &#x2190;
+    </a>
+    <hr>
+    <div> 	
+        <p>
+            <strong>
+                Cuenta:
+            </strong>
+        </p>
+        <div class="opcion-agrupada opcion-enlace">
+            <p>
+                <strong>
+                    Perfil de Usuario
+                </strong> 
+            </p>
+            <p class="descripcion">
+                Editar Información Personal
+            </p>
+        </div>
+        
+        <div class="opcion-toggle">
+            <div>
+                <p>
+                    <strong>
+                        Almacenamiento en la Nube
+                    </strong>
+                </p>
+                <p class="descripcion">
+                    Sincroniza tus recetas en todos tus dispositivos
+                </p>
+            </div>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <hr>
+    </div>
+    <hr>
+    <br>
+    <div>
+        <p>
+            <strong>
+                Apariencia:
+            </strong>
+        </p>
+        
+        <div class="opcion-toggle" id="dark-mode-toggle">
+            <div>
+                <p>
+                    <strong>
+                        Modo Oscuro
+                    </strong>
+                </p>
+                <p class="descripcion">
+                    Cambia el tema de la aplicación
+                </p>
+            </div>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="opcion-agrupada">
+            <p>
+                <strong>
+                    Tamaño del texto
+                </strong>
+            </p>
+            <p class="descripcion">
+                Ajusta el tamaño de la fuente
+            </p>
+            <input type="range" min="100" max="150" value="100" class="slider-range" id="fontSizeSlider">
+        </div>
+        
+        <div class="opcion-select">
+            <p>
+                <strong>
+                    Idioma:
+                </strong>
+            </p>
+            <select id="Idioma" name="Idioma" required>
+                <option value="">Seleccione el Idioma</option>
+                <option value="Español">Español</option>
+                <option value="Inglés">inglés</option>
+                <option value="Francés">Francés</option>
+                <option value="Alemán">Alemán</option>
+                <option value="Chino">Chino</option>
+            </select>
+        </div>
+
+    </div>
+    <hr>
+    <br>
+    <div> 	
+        <p>
+            <strong>
+                Notificaciones:
+            </strong>
+        </p>
+        
+        <div class="opcion-toggle">
+            <div>
+                <p>
+                    <strong>
+                        Notificaciones Push
+                    </strong> 
+                </p>
+                <p class="descripcion">
+                    Recetas nuevas y actualizaciones
+                </p>
+            </div>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="opcion-toggle">
+            <div>
+                <p>
+                    <strong>
+                        Recordatorios de Cocina
+                    </strong>
+                </p>
+                <p class="descripcion">
+                    Te recordamos cocinar recetas guardadas
+                </p>
+            </div>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="opcion-toggle">
+            <div>
+                <p>
+                    <strong>
+                        Nuevos Seguidores
+                    </strong>
+                </p>
+                <p class="descripcion">
+                    Cuando alguien sigue tu perfil
+                </p>
+            </div>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        
+        <div class="opcion-toggle">
+            <div>
+                <p>
+                    <strong>
+                        Sonidos
+                    </strong>
+                </p>
+                <p class="descripcion">
+                    Sonidos de la aplicación
+                </p>
+            </div>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+    </div>
+    
+    <hr>
+    <br>
+
+    <div class="seccion-cuadro-grande">
+        <p>
+            <strong>
+                Gestión de Datos:
+            </strong>
+        </p>
+        
+        <div class="opcion-boton">
+            <div>
+                <p>
+                    <strong>
+                        Exportar Mis Recetas
+                    </strong>
+                </p>
+            </div>
+            <button class="btn-primary" onclick="alert('Exportando recetas')">Exportar</button>
+        </div>
+        
+        <div class="opcion-boton">
+            <div>
+                <p>
+                    <strong>
+                        Descargar en formato PDF
+                    </strong>
+                </p>
+            </div>
+            <button class="btn-primary" onclick="alert('Descargando PDF')">Descargar</button>
+        </div>
+
+        <div class="opcion-boton">
+            <div>
+                <p>
+                    <strong>
+                        Hacer Backup
+                    </strong>
+                </p>
+                <p class="descripcion">
+                    Guardar todos tus datos
+                </p>
+            </div>
+            <button class="btn-primary" onclick="alert('Iniciando copia de seguridad')">Backup</button>
+        </div>
+
+        <div class="opcion-boton">
+            <div>
+                <p>
+                    <strong>
+                        Limpiar Caché
+                    </strong>
+                </p>
+                <p class="descripcion">
+                    Liberar espacio de almacenamiento
+                </p>
+            </div>
+            <button class="btn-secondary" onclick="alert('Limpiando caché')">Limpiar</button>
+        </div>
+        
+    </div>
+
+    <hr>
+    <br>
+
+    <div class="seccion-cuadro-grande">
+        <p>
+            <strong>
+                Soporte:
+            </strong>
+        </p>
+
+        <div class="opcion-agrupada opcion-enlace" onclick="alert('Abriendo Centro de Ayuda...')">
+            <p>
+                <strong>
+                    Centro de Ayuda
+                </strong>
+            </p>
+            <p class="descripcion">
+                Preguntas frecuentes y tutoriales
+            </p>
+        </div>
+
+        <div class="opcion-boton">
+            <div>
+                <p>
+                    <strong>
+                        Contactar Soporte
+                    </strong>
+                </p>
+                <p class="descripcion">
+                    Obtén ayuda personalizada
+                </p>
+            </div>
+            <button class="btn-primary" onclick="alert('Redirigiendo a soporte')">Ayuda</button>
+        </div>
+
+        <div class="opcion-rating">
+            <div>
+                <p>
+                    <strong>
+                        Calificar App
+                    </strong>
+                </p>
+                <p class="descripcion" id="rating-desc">
+                    Déjanos tu opinión en la tienda
+                </p>
+            </div>
+            <div class="estrellas">
+                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Excelente">★</label>
+                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Muy Bien">★</label>
+                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Bien">★</label>
+                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Regular">★</label>
+                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Malo">★</label>
+            </div>
+        </div>
+
+        <div class="opcion-boton">
+            <div>
+                <p>
+                    <strong>
+                        Compartir App
+                    </strong>
+                </p>
+                <p class="descripcion">
+                    Invita a tus amigos
+                </p>
+            </div>
+            <button class="btn-secondary" onclick="alert('Abriendo diálogo para compartir')">Compartir</button>
+        </div>
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
