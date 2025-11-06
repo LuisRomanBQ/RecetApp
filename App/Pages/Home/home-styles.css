@@ -9,22 +9,6 @@ body {
     color: #2e2e2e;
 }
 
-.app-header {
-    text-align: center;
-    padding: 3rem 1.5rem 2rem;
-    background: linear-gradient(135deg, #ffa751, #ffe259);
-    color: #1d1d1f;
-}
-
-.app-header h1 {
-    margin: 0 0 0.5rem;
-    font-size: 2.6rem;
-}
-
-.app-header p {
-    margin: 0;
-    font-size: 1rem;
-}
 
 .home {
     max-width: 1100px;
@@ -35,52 +19,6 @@ body {
     gap: 2.5rem;
 }
 
-.search-section {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.search-label {
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
-.search-bar {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-    background: #ffffff;
-    border-radius: 999px;
-    padding: 0.35rem 0.6rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-.search-bar input[type="search"] {
-    flex: 1;
-    border: none;
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    background: transparent;
-    outline: none;
-    color: #333333;
-}
-
-.search-bar button {
-    border: none;
-    padding: 0.65rem 1.5rem;
-    border-radius: 999px;
-    background: #ff8140;
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: background 0.2s ease-in-out;
-}
-
-.search-bar button:hover {
-    background: #ff6a18;
-}
 
 .catalogue {
     display: flex;
@@ -131,6 +69,9 @@ body {
     flex-direction: column;
     justify-content: space-between;
     gap: 0.75rem;
+    border-color: #c4c4c4;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .recipe-header {
@@ -192,31 +133,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    .app-header {
-        padding: 2.5rem 1rem 1.5rem;
-    }
-
-    .app-header h1 {
-        font-size: 2rem;
-    }
-
     .home {
         padding: 1.5rem 1rem 3rem;
-    }
-
-    .search-bar {
-        padding: 0.3rem 0.5rem;
-    }
-}
-
-@media (max-width: 540px) {
-    .search-bar {
-        flex-direction: column;
-        align-items: stretch;
-        border-radius: 18px;
-    }
-
-    .search-bar button {
-        width: 100%;
     }
 }
