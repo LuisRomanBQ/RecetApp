@@ -1,0 +1,50 @@
+<body>
+      <main>
+        <form id = "registro" (ngSubmit)="registrarse()" method="post" enctype="multipart/form-data">
+            <img src="../../../Img/RecetappLogo.webp" alt="RecetappLogo">
+            <h1>¡Incursionate en la nueva app de recetas!</h1>
+            <Fieldset>
+                <legend>Datos personales</legend>
+                    <div>
+                <label for="nombre">Nombre(s)</label>
+                <input type="text" id="nombre" name="nombre" [(ngModel)]="nombres" placeholder="Ingrese su nombre">
+                </div>
+
+            <div>
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" [(ngModel)]="apellidos"placeholder="Ingrese sus apellidos">            
+            </div>
+
+            </Fieldset>
+            <fieldset>
+                <legend>Usuario</legend>
+                <div>
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" [(ngModel)]="correo"placeholder="Ejemplo@TuDominio.com">            
+                </div>
+                <div>
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" name="contrasena" id="contraseña" [(ngModel)]="contrasena"placeholder="8 Caracteres minimo y un caracter especial">
+                </div> 
+                <div>
+                    <label for="Biografia">Biografia</label>
+                    <textarea name="biografia" id="biografia" [(ngModel)]="biografia"placeholder="Cuéntanos algo de ti..."></textarea>
+                </div> 
+            </fieldset>
+            <fieldset>
+
+            <div class="botones">
+                <button type="submit">Registrarme</button>
+            </div>
+            <div class="signup-link">
+                ¿Ya tienes cuenta? <a routerLink="/inicioSesion">Inicia sesion aquí</a>
+            </div>
+            </fieldset>
+        </form>
+    </main>
+
+    <footer>
+        Recetapp © S.A de C.V <br>
+        Derechos Reservados
+    </footer>  
+</body>

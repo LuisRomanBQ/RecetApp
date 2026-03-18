@@ -1,0 +1,138 @@
+<header>
+  <nav>
+    <form id="searchbar" (submit)="$event.preventDefault()">
+      <div class="logo">
+        <a href="/"><img src="../../Img/RecetappLogo.webp" alt=""></a>
+      </div>
+
+      <div class="searchContainer">
+        <input type="search" placeholder="Buscar Recetas...">
+
+        <button type="submit">
+          <img src="../../Img/004-search.png">
+        </button>
+
+        <button type="button" (click)="abrirFiltro()">
+          <img src="../../Img/002-filter.png">
+        </button>
+      </div>
+    </form>
+  </nav>
+</header>
+
+<!-- MODAL -->
+<div *ngIf="isOpen" class="modal-container">
+
+  <!-- FONDO -->
+  <div class="overlay" (click)="cerrarFiltro()"></div>
+
+  <!-- CONTENIDO -->
+  <div class="modal-content">
+
+    <h3>Filtros</h3>
+
+    <!-- INGREDIENTES -->
+    <section>
+        <p><strong>Por Ingrediente</strong></p>
+        <div class="search-mini">
+            <input type="search" placeholder="Buscar ingredientes...">
+            <button type="button">
+                <img src="../../Img/004-search.png">
+            </button>
+            <button type="button" (click)="abrirModalI()">
+                <img src="../../Img/002-add.png">
+            </button>
+            <button type="button" (click)="deselectI()">
+                <img src="../../Img/x.png">
+            </button>
+        </div>
+
+        <div class="radio-group">
+          <label><input type="radio" name="modo"> Flexible</label>
+          <label><input type="radio" name="modo"> Estricto</label>
+          <label><input type="radio" name="modo"> Solo selección</label>
+        </div>
+
+        <div class="chip-container">
+            <span class="chip"
+              *ngFor="let ing of ingredientes"
+              [class.selected]="ing.selected"
+              (click)="toggleIngrediente(ing)">
+            {{ ing.nombre }}
+            </span>
+        </div>
+    </section>
+
+    <!-- ETIQUETAS -->
+    <section>
+        <p><strong>Por Etiqueta</strong></p>
+        <div class="search-mini">
+            <input type="search" placeholder="Buscar etiquetas...">
+            <button type="button">
+                <img src="../../Img/004-search.png">
+            </button>
+            <button type="button" (click)="abrirModalE()">
+                <img src="../../Img/002-add.png">
+            </button>
+            <button type="button" (click)="deselectE()">
+                <img src="../../Img/x.png">
+            </button>
+        </div>
+        <div class="chip-container">
+            <span class="chip"
+                *ngFor="let tag of etiquetas"
+                [class.selected]="tag.selected"
+                (click)="toggleEtiqueta(tag)">
+            {{ tag.nombre }}
+            </span>
+        </div>
+    </section>
+
+    <button class="btn-aplicar" (click)="cerrarFiltro()">
+      Aplicar
+    </button>
+
+  </div>
+</div>
+<!-- MODAL INGREDIENTE -->
+<div *ngIf="isOpenI" class="modal-container">
+
+  <div class="overlay" (click)="cerrarModalI()"></div>
+
+  <div class="modal-content modal-small">
+    <h3>Nuevo Ingrediente</h3>
+
+    <form (submit)="$event.preventDefault()">
+      <input type="text" placeholder="Ingrediente..." 
+      class="input-modal" [(ngModel)]="nombreI" name="nombreI">
+
+      <div class="modal-actions">
+        <button type="submit" class="btn-aplicar" (click)="agregarIngrediente()">
+          Agregar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL ETIQUETA -->
+<div *ngIf="isOpenE" class="modal-container">
+
+  <div class="overlay" (click)="cerrarModalE()"></div>
+
+  <div class="modal-content modal-small">
+    <h3>Nueva Etiqueta</h3>
+
+    <form (submit)="$event.preventDefault()">
+      <input type="text" placeholder="Etiqueta..." 
+      class="input-modal" [(ngModel)]="nombreE" name="nombreE"
+>
+
+      <div class="modal-actions">
+        <button type="submit" class="btn-aplicar" (click)="agregarEtiqueta()">
+          Agregar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

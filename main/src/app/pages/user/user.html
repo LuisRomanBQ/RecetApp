@@ -1,0 +1,25 @@
+
+  <main class="perfil-container">    
+    <h2 class="titulo">Mi Perfil</h2>
+
+    <section class="perfil-header">
+      <div class="foto-perfil">
+        <span class="iniciales">CM</span>
+        <div class="icono-camara">📷</div>
+      </div>
+
+      <div class="perfil-info">
+        <div class="nombre-linea">
+          <h3 class="nombre">{{usuario?.nombre}}</h3>
+        </div>
+        <p class="descripcion">
+          {{usuario?.biografia}}
+        </p>
+      </div>
+    </section>
+
+    <section class="perfil-botones">
+      <button class="boton" (click)="logOut()">Cerrar sesion</button>
+      <button class="boton">Editar Perfil</button>
+    </section>
+  </main>

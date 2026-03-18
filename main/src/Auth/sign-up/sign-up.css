@@ -1,0 +1,138 @@
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: #eee;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+main{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.signup-link {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: #555;
+}
+.signup-link a {
+  color: #ff6901;
+  text-decoration: none;
+  font-weight: bold;
+}
+#biografia{
+  height: 120px;
+  width: 100%;
+  resize: none; 
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 14px;
+  border: 2px solid gray;
+  box-sizing: border-box;
+}
+textarea:focus{
+    outline:none;
+    border-color:#ff6901;
+}
+.signup-link a:hover {
+  text-decoration: underline;
+}
+/* tarjeta principal */
+form{
+    width:420px;
+    background:white;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* titulo */
+h1{
+    text-align:center;
+    color:#2a465c;
+    margin-bottom:20px;
+}
+
+/* fieldsets */
+fieldset{
+    width:100%;
+    border:none;
+    margin-bottom:20px;
+}
+
+legend{
+    font-weight:bold;
+    color:#ff6901;
+    margin-bottom:10px;
+}
+
+/* grupos */
+fieldset div{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:12px;
+}
+
+/* labels */
+label{
+    font-size:14px;
+    margin-bottom:5px;
+    color:#444;
+}
+
+/* inputs */
+input{
+    padding:10px;
+    border-radius:25px;
+    border:2px solid #eee;
+    font-size:15px;
+    transition:0.3s;
+}
+
+input:focus{
+    outline:none;
+    border-color:#ff6901;
+}
+
+/* botones */
+.botones{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    border-radius:25px;
+    background:#ff6901;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#e55d00;
+}
+
+/* logo */
+img{
+    height:115px;
+    margin-bottom:10px;
+}
+
+/* footer */
+footer{
+    text-align:center;
+    padding:15px;
+    font-size:14px;
+    color:white;
+}

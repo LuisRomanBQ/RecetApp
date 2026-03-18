@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* tarjeta */
+.container {
+  width: 400px;
+  background: #ffffff;
+  padding: 35px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  border-radius: 12px;
+}
+
+/* titulo */
+.container h1 {
+  margin-bottom: 25px;
+  font-size: 26px;
+  text-align: center;
+  color: #2a465c;
+}
+
+/* inputs */
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 40px;
+  font-size: 16px;
+  border: 2px solid #eee;
+  border-radius: 25px;
+  box-sizing: border-box;
+  transition: border 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #ff6901;
+}
+
+/* iconos */
+.form-group i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #999;
+}
+
+/* boton */
+.container button {
+  width: 60%;
+  display: block;
+  margin: 10px auto 0 auto;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #ff6901;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.container button:hover {
+  background-color: #e55d00;
+  transform: scale(1.03);
+}
+
+/* link registro */
+.signup-link {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: #555;
+}
+
+.signup-link a {
+  color: #ff6901;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}

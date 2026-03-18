@@ -1,0 +1,41 @@
+<article class="recipe-block" *ngFor="let receta of recetas">
+
+<!-- TOP RIGHT -->
+<div class="top-right">
+    <span class="badge likes">
+      Likes: {{ receta.likes }}
+    </span>
+    <span 
+      class="badge difficulty"
+      [ngClass]="{
+            'easy': receta.dificultad === 1,
+            'medium': receta.dificultad === 2,
+            'hard': receta.dificultad === 3
+        }">
+      {{ getDificultadTexto(receta.dificultad) }}
+    </span>
+</div>
+
+    <!-- CONTENIDO -->
+    <h3>{{receta.titulo}}</h3>
+
+    <p class="recipe-author">
+        {{ receta.autor}}
+    </p>
+
+    <p class="recipe-description">
+        {{ receta.descripcion }}
+    </p>
+
+    <!-- BOTTOM RIGHT -->
+<div class="bottom-right">
+    <span class="badge porciones">
+      Porciones: {{ receta.porciones }}
+    </span>
+
+    <span class="badge tiempo">
+      {{ receta.tiempoPreparacion }} min
+    </span>
+</div>
+
+</article>

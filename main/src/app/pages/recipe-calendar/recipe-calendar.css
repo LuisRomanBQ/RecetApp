@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fafafa;
+    color: #333;
+}
+
+/* NAV SUPERIOR */
+.top-nav {
+    background: white;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.top-nav nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.top-nav button {
+    background: #f2f2f2;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.top-nav .active {
+    background: #000;
+    color: white;
+}
+
+/* TÍTULO */
+.titulo {
+    padding: 20px;
+}
+
+.titulo h2 {
+    margin: 0;
+}
+
+.contenedor {
+    padding: 10px 20px;
+}
+
+/* Días */
+.dia {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #e5e5e5;
+}
+
+.dia-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.num {
+    opacity: 0.6;
+}
+
+.agregar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
+
+.meal {
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.meal:last-child {
+    border-bottom: none;
+}
+
+.label {
+    width: 90px;
+    font-weight: bold;
+}
+
+.add-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #777;
+}
+
+.receta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fafafa;
+    padding: 8px 12px;
+    border-radius: 8px;
+    flex: 1;
+}
+
+.icon {
+    font-size: 22px;
+}
+
+.delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    margin-left: auto;
+}
