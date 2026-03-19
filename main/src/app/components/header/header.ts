@@ -7,6 +7,7 @@ import { Ingrediente, IngredienteFiltro } from '../../models/Ingrediente';
 import { IngredienteService } from '../../services/ingrediente-service';
 import { FormsModule } from '@angular/forms';
 import { filter, retry } from 'rxjs';
+import { FiltroService } from '../../services/filtro-service';
 
 @Component({
   selector: 'app-header',
@@ -31,7 +32,7 @@ export class Header implements OnInit {
 
   constructor(private etiquetaService: EtiquetaService,
     private ingredienteService:IngredienteService,
-    private router:Router
+    private router:Router, private filtroService:FiltroService
   ) {}
   ngOnInit(): void {
   this.etiquetaService.getEtiquetas().subscribe(data => {
@@ -72,16 +73,18 @@ export class Header implements OnInit {
   cerrarFiltro() {
     this.isOpen = false;
     if (this.filterValue === 0) {
-      alert("Seleccione una opcion de filtrado de ingredientes");
+      alert("No hay ningun filtro seleccionado");
       return;
     }
     const filtros = this.obtenerFiltros();
 
     const payload = {
       ...filtros,
-      modo: this.filterValue
+      modo: this.filterValue,
+      busqueda: this.search
     };
     localStorage.setItem("filtros", JSON.stringify(payload));
+    this.filtroService.actualizarFiltros(payload);
     document.body.style.overflow = 'auto';
   }
 
