@@ -59,7 +59,7 @@ export class Home implements OnInit{
       }));
 
       if(this.busqueda){
-        this.recetas.filter(r=>
+        this.recetas = this.recetas.filter(r=>
           r.titulo.toLowerCase().includes(this.busqueda.toLowerCase())
         );
       }

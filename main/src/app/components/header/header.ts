@@ -72,10 +72,8 @@ export class Header implements OnInit {
 
   cerrarFiltro() {
     this.isOpen = false;
-    if (this.filterValue === 0) {
-      alert("No hay ningun filtro seleccionado");
-      return;
-    }
+    document.body.style.overflow = 'auto';
+
     const filtros = this.obtenerFiltros();
 
     const payload = {
@@ -83,9 +81,15 @@ export class Header implements OnInit {
       modo: this.filterValue,
       busqueda: this.search
     };
+    
     localStorage.setItem("filtros", JSON.stringify(payload));
     this.filtroService.actualizarFiltros(payload);
-    document.body.style.overflow = 'auto';
+
+    if (this.filterValue === 0) {
+      alert("No hay ningun filtro seleccionado");
+      return;
+    }
+    
   }
 
   toggleIngrediente(item: IngredienteFiltro) {
@@ -152,12 +156,12 @@ export class Header implements OnInit {
   }
   guardarBusqueda(){
     const value = this.search.trim();
-
-    if (!value) {
-      localStorage.removeItem("busqueda");
-    } 
-    else {
-      localStorage.setItem("busqueda", value);
-    }
+    localStorage.setItem("busqueda", value);
+    const filtrosActuales = this.obtenerFiltros();
+    this.filtroService.actualizarFiltros({
+      ...filtrosActuales,
+      modo: this.filterValue,
+      busqueda: value
+    });
   }
 }
