@@ -1,12 +1,14 @@
 <header>
   <nav>
-    <form id="searchbar" (submit)="$event.preventDefault()">
+    <form id="searchbar">
       <div class="logo">
         <a href="/"><img src="../../Img/RecetappLogo.webp" alt=""></a>
       </div>
 
       <div class="searchContainer">
-        <input type="search" placeholder="Buscar Recetas...">
+        <input type="search" placeholder="Buscar Recetas..." 
+        [(ngModel)]="search" (input)="guardarBusqueda()"
+        name="search">
 
         <button type="submit">
           <img src="../../Img/004-search.png">
@@ -48,9 +50,10 @@
         </div>
 
         <div class="radio-group">
-          <label><input type="radio" name="modo"> Flexible</label>
-          <label><input type="radio" name="modo"> Estricto</label>
-          <label><input type="radio" name="modo"> Solo selección</label>
+          <label><input type="radio" name="modo" [value]="1" [(ngModel)]="filterValue"> Flexible</label>
+          <label><input type="radio" name="modo" [value]="2" [(ngModel)]="filterValue"> Estricto</label>
+          <label><input type="radio" name="modo" [value]="3" [(ngModel)]="filterValue"> Solo selección</label>
+          <input type="radio" name="modo" [value]="0" [(ngModel)]="filterValue" hidden>
         </div>
 
         <div class="chip-container">
