@@ -70,8 +70,12 @@ export class Header implements OnInit {
     this.isOpen = true;
     document.body.style.overflow = 'hidden';
   }
+  cerrarFiltro(){
+    this.isOpen = false;
+    document.body.style.overflow = 'auto';
+  }
 
-  cerrarFiltro() {
+  aplicarFiltro() {
     this.isOpen = false;
     document.body.style.overflow = 'auto';
 
@@ -85,6 +89,7 @@ export class Header implements OnInit {
 
     localStorage.setItem("filtros", JSON.stringify(payload));
     this.filtroService.actualizarFiltros(payload);
+    this.router.navigate(["/app/inicio"])
     
   }
 
@@ -158,6 +163,7 @@ export class Header implements OnInit {
       modo: this.filterValue,
       busqueda: value
     });
+    this.router.navigate(["/app/inicio"])
   }
 get ingredientesFiltrados() {
   const query = this.searchI.toLowerCase().trim();
