@@ -63,6 +63,7 @@ La API puede probarse mediante el navegador:
 ```
 https://www.RecetApp.somee.com/{entidad}
 ```
+*Api:* https://github.com/LuisRomanBQ/RecetApp_API.git
 
 Desde ahí es posible ejecutar endpoints como:
 
