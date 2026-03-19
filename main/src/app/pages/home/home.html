@@ -1,22 +1,21 @@
-<article class="recipe-block" *ngFor="let receta of recetas">
+<ng-container *ngIf="recetas.length > 0; else noHayRecetas">
+  
+  <article class="recipe-block" *ngFor="let receta of recetas">
+    <div class="top-right">
+        <span class="badge likes">
+          Likes: {{ receta.likes }}
+        </span>
+        <span 
+          class="badge difficulty"
+          [ngClass]="{
+                'easy': receta.dificultad === 1,
+                'medium': receta.dificultad === 2,
+                'hard': receta.dificultad === 3
+            }">
+          {{ getDificultadTexto(receta.dificultad) }}
+        </span>
+    </div>
 
-<!-- TOP RIGHT -->
-<div class="top-right">
-    <span class="badge likes">
-      Likes: {{ receta.likes }}
-    </span>
-    <span 
-      class="badge difficulty"
-      [ngClass]="{
-            'easy': receta.dificultad === 1,
-            'medium': receta.dificultad === 2,
-            'hard': receta.dificultad === 3
-        }">
-      {{ getDificultadTexto(receta.dificultad) }}
-    </span>
-</div>
-
-    <!-- CONTENIDO -->
     <h3>{{receta.titulo}}</h3>
 
     <p class="recipe-author">
@@ -27,15 +26,31 @@
         {{ receta.descripcion }}
     </p>
 
-    <!-- BOTTOM RIGHT -->
-<div class="bottom-right">
-    <span class="badge porciones">
-      Porciones: {{ receta.porciones }}
-    </span>
+    <div class="bottom-right">
+        <span class="badge porciones">
+          Porciones: {{ receta.porciones }}
+        </span>
 
-    <span class="badge tiempo">
-      {{ receta.tiempoPreparacion }} min
-    </span>
-</div>
+        <span class="badge tiempo">
+          {{ receta.tiempoPreparacion }} min
+        </span>
+    </div>
+  </article>
 
-</article>
+</ng-container>
+
+<ng-template #noHayRecetas>
+  <div class="no-results-home">
+    <div class="icon-search-empty">
+      <img src="..//public/Img/004-search.png" alt="Empty search icon with magnifying glass symbol indicating no results found">
+    </div>
+    <h3>No se encontraron recetas</h3>
+    <p *ngIf="busqueda">
+        No hay coincidencias para "<strong>{{ busqueda }}</strong>"
+    </p>
+    <p *ngIf="!busqueda">
+        Parece que no hay recetas que cumplan con estos filtros.
+    </p>
+    <small>Prueba quitando algunos ingredientes o cambiando el modo de búsqueda.</small>
+  </div>
+</ng-template>

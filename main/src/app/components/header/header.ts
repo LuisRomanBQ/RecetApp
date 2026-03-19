@@ -6,7 +6,6 @@ import { Etiqueta, EtiquetaFiltro } from '../../models/Etiqueta';
 import { Ingrediente, IngredienteFiltro } from '../../models/Ingrediente';
 import { IngredienteService } from '../../services/ingrediente-service';
 import { FormsModule } from '@angular/forms';
-import { filter, retry } from 'rxjs';
 import { FiltroService } from '../../services/filtro-service';
 
 @Component({
@@ -27,6 +26,8 @@ export class Header implements OnInit {
   nombreI = "";
   nombreE = "";
   search: string = localStorage.getItem("busqueda") || '';
+  searchE = "";
+  searchI = "";
   nuevoI?:Ingrediente;
   nuevoE?:Etiqueta;
 
@@ -81,14 +82,9 @@ export class Header implements OnInit {
       modo: this.filterValue,
       busqueda: this.search
     };
-    
+
     localStorage.setItem("filtros", JSON.stringify(payload));
     this.filtroService.actualizarFiltros(payload);
-
-    if (this.filterValue === 0) {
-      alert("No hay ningun filtro seleccionado");
-      return;
-    }
     
   }
 
@@ -141,18 +137,17 @@ export class Header implements OnInit {
     };
   }
   deselectI() {
-    this.ingredientes = this.ingredientes.map(i => ({
-      ...i,
-      selected: false
-  }));
-  this.filterValue = 0;
-  localStorage.removeItem("filtros");
-}
+    this.ingredientes.forEach(i => i.selected = false);
+    if (this.filterValue >= 1 && this.filterValue <= 3) {
+          this.filterValue = 0;
+          localStorage.removeItem("filtros");
+    }
+  }
   deselectE(){
-    this.etiquetas = this.etiquetas.map(e => ({
-      ...e,
-      selected: false
-    }))
+    this.etiquetas.forEach(e => e.selected = false);
+    if (this.filterValue === 4) {
+        this.filterValue = 0;
+    }
   }
   guardarBusqueda(){
     const value = this.search.trim();
@@ -164,4 +159,19 @@ export class Header implements OnInit {
       busqueda: value
     });
   }
+get ingredientesFiltrados() {
+  const query = this.searchI.toLowerCase().trim();
+  if (!query) return this.ingredientes; // Si está vacío, muestra todos
+  return this.ingredientes.filter(i => 
+    i.nombre.toLowerCase().includes(query)
+  );
+}
+
+get etiquetasFiltradas() {
+  const query = this.searchE.toLowerCase().trim();
+  if (!query) return this.etiquetas; // Si está vacío, muestra todas
+  return this.etiquetas.filter(e => 
+    e.nombre.toLowerCase().includes(query)
+  );
+}
 }

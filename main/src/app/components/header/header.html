@@ -24,80 +24,89 @@
 
 <!-- MODAL -->
 <div *ngIf="isOpen" class="modal-container">
-
-  <!-- FONDO -->
   <div class="overlay" (click)="cerrarFiltro()"></div>
 
-  <!-- CONTENIDO -->
   <div class="modal-content">
-
     <h3>Filtros</h3>
 
-    <!-- INGREDIENTES -->
-    <section>
+    <div class="radio-group">
+      <label><input type="radio" name="modo" [value]="1" [(ngModel)]="filterValue"> Flexible</label>
+      <label><input type="radio" name="modo" [value]="2" [(ngModel)]="filterValue"> Estricto</label>
+      <label><input type="radio" name="modo" [value]="3" [(ngModel)]="filterValue"> Solo selección</label>
+      <label><input type="radio" name="modo" [value]="4" [(ngModel)]="filterValue"> Por Etiqueta</label>
+      <input type="radio" name="modo" [value]="0" [(ngModel)]="filterValue" hidden>
+    </div>
+
+    <hr>
+
+    <section [class.disabled-section]="filterValue === 4 || filterValue === 0">
         <p><strong>Por Ingrediente</strong></p>
         <div class="search-mini">
-            <input type="search" placeholder="Buscar ingredientes...">
-            <button type="button">
+            <input type="search" placeholder="Buscar ingredientes..."
+               [(ngModel)]="searchI"
+               [disabled]="filterValue === 4 || filterValue === 0">
+            <button type="button" [disabled]="filterValue === 4 || filterValue === 0">
                 <img src="../../Img/004-search.png">
             </button>
-            <button type="button" (click)="abrirModalI()">
-                <img src="../../Img/002-add.png">
+            <button type="button" [disabled]="filterValue === 4 || filterValue === 0" (click)="abrirModalI()">
+              <img src="../../Img/002-add.png">
             </button>
-            <button type="button" (click)="deselectI()">
-                <img src="../../Img/x.png">
+            <button type="button" [disabled]="filterValue === 4 || filterValue === 0" (click)="deselectI()">
+              <img src="../../Img/x.png">
             </button>
-        </div>
-
-        <div class="radio-group">
-          <label><input type="radio" name="modo" [value]="1" [(ngModel)]="filterValue"> Flexible</label>
-          <label><input type="radio" name="modo" [value]="2" [(ngModel)]="filterValue"> Estricto</label>
-          <label><input type="radio" name="modo" [value]="3" [(ngModel)]="filterValue"> Solo selección</label>
-          <label><input type="radio" name="modo" [value]="4" [(ngModel)]="filterValue"> Por Etiqueta</label>
-          <input type="radio" name="modo" [value]="0" [(ngModel)]="filterValue" hidden>
         </div>
 
         <div class="chip-container">
-            <span class="chip"
-              *ngFor="let ing of ingredientes"
+          <span class="chip"
+              *ngFor="let ing of ingredientesFiltrados"
               [class.selected]="ing.selected"
-              (click)="toggleIngrediente(ing)">
+              [class.not-allowed]="filterValue === 4 || filterValue === 0"
+              (click)="(filterValue !== 4 && filterValue !== 0) && toggleIngrediente(ing)">
             {{ ing.nombre }}
-            </span>
+          </span>
         </div>
+        <p class="no-results-label" *ngIf="ingredientesFiltrados.length === 0 && searchI">
+            No se encontraron ingredientes para "{{ searchI }}"
+        </p>
     </section>
 
-    <!-- ETIQUETAS -->
-    <section>
-        <p><strong>Por Etiqueta</strong></p>
-        <div class="search-mini">
-            <input type="search" placeholder="Buscar etiquetas...">
-            <button type="button">
+    <hr>
+    <section [class.disabled-section]="filterValue !== 4">
+          <p><strong>Por Etiqueta</strong></p>
+          <div class="search-mini">
+            <input type="search" placeholder="Buscar etiquetas..." 
+               [(ngModel)]="searchE" name="searchE"
+               [disabled]="filterValue !== 4">
+            <button type="button" [disabled]="filterValue !== 4">
                 <img src="../../Img/004-search.png">
             </button>
-            <button type="button" (click)="abrirModalE()">
+            <button type="button" [disabled]="filterValue !== 4" (click)="abrirModalE()">
                 <img src="../../Img/002-add.png">
             </button>
-            <button type="button" (click)="deselectE()">
+            <button type="button" [disabled]="filterValue !== 4" (click)="deselectE()">
                 <img src="../../Img/x.png">
             </button>
         </div>
         <div class="chip-container">
             <span class="chip"
-                *ngFor="let tag of etiquetas"
+                *ngFor="let tag of etiquetasFiltradas"
                 [class.selected]="tag.selected"
-                (click)="toggleEtiqueta(tag)">
+                [class.not-allowed]="filterValue !== 4"
+                (click)="filterValue === 4 && toggleEtiqueta(tag)">
             {{ tag.nombre }}
             </span>
         </div>
+        <p class="no-results-label" *ngIf="etiquetasFiltradas.length === 0 && searchE">
+          No se encontraron etiquetas para "{{ searchE }}"
+        </p>
     </section>
 
     <button class="btn-aplicar" (click)="cerrarFiltro()">
       Aplicar
     </button>
-
   </div>
 </div>
+
 <!-- MODAL INGREDIENTE -->
 <div *ngIf="isOpenI" class="modal-container">
 
