@@ -1,1 +1,74 @@
-<p>recipe-detail works!</p>
+<div class="recipe-container" *ngIf="recipe">
+  <button class="btn-back-fixed" (click)="regresar()">
+    <span class="arrow">←</span> Volver al inicio
+  </button>
+
+  <header class="main-header">
+    <h1>{{ recipe.titulo }}</h1>
+    <div class="author-badge"> <strong>Receta de: {{ recipe.nombreAutor }}</strong></div>
+    <p class="description">{{ recipe.descripcion }}</p>
+  </header>
+
+  <section class="quick-info">
+    <div class="info-item">
+      <span class="label">Tiempo</span>
+      <span class="value">{{ recipe.tiempoPreparacion }} min</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Porciones</span>
+      <span class="value">{{ recipe.porciones }}</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Dificultad</span>
+      <span class="value" [ngClass]="'diff-' + recipe.dificultad">
+        {{ recipe.dificultad === 1 ? 'Fácil' : recipe.dificultad === 2 ? 'Media' : 'Difícil' }}
+      </span>
+    </div>
+    <div class="info-item">
+      <span class="label">Likes</span>
+      <span class="value"> {{ recipe.likes }}</span>
+    </div>
+  </section>
+
+  <div class="details-grid">
+    <section class="ingredients-section">
+      <h3>Ingredientes</h3>
+      <ul class="ing-list">
+        <li *ngFor="let ing of recipe.ingredientes">
+          <div class="ing-main">
+            <strong>{{ ing.nombre }}:</strong> {{ ing.cantidad }} {{ ing.unidad }}
+          </div>
+          <div class="substitutes" *ngIf="ing.sustitutos && ing.sustitutos.length > 0">
+            <small>Sustitutos:</small>
+            <span class="sub-chip" *ngFor="let sub of ing.sustitutos">
+              {{ sub}}
+            </span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="steps-section">
+      <h3>Preparación</h3>
+      <div class="step-card" *ngFor="let paso of recipe.pasos">
+        <div class="step-number">{{ paso.numero }}</div>
+        <div class="step-text">
+          <p>{{ paso.descripcion }}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="comments-list">
+  <div class="comment-card" *ngFor="let c of recipe.comentarios">
+    <div class="comment-header">
+      <strong>{{ c.autor }}</strong>
+      <span class="date">{{ c.fecha | date:'dd/MM/yyyy' }}</span>
+    </div>
+    <p class="comment-text">{{ c.texto }}</p>
+  </div>
+
+  <div class="empty-comments" *ngIf="recipe.comentarios.length === 0">
+    <p>Aún no hay comentarios. ¡Sé el primero en opinar!</p>
+  </div>
+</div>
+</div>

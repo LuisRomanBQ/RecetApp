@@ -21,7 +21,7 @@ export const routes: Routes = [
     {path: 'app', component: AppLayout, canActivate: [authGuard], children:[
         {path: 'inicio', component: Home},
         {path: 'usuario', component: User},
-        {path: 'detalleReceta', component: RecipeDetail},
+        {path: 'detalleReceta/:id', component: RecipeDetail},
         {path: 'nuevaReceta', component: NewRecipe},
         {path: 'busquedaReceta', component: SearchRecipe},
         {path: 'compraIngredientes', component: ShoppingIngredients},

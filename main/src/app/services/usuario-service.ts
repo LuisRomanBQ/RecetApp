@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../models/Usuario';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -22,8 +23,8 @@ export class UsuarioService {
     let route = this.apiUrl + '/' + id;
     return this.client.delete(route)
   }
-  getById(id:number){
+  getById(id:number):Observable<Usuario>{
     let route = this.apiUrl + '/' + id;
-    return this.client.get(route)
+    return this.client.get<Usuario>(route)
   }
 }

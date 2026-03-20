@@ -23,9 +23,9 @@ export class RecetaService {
     let route = this.apiUrl + '/' + id;
     return this.client.delete(route)
   }
-  getById(id:number){
+  getById(id:number):Observable<Receta>{
     let route = this.apiUrl + '/' + id;
-    return this.client.get(route)
+    return this.client.get<Receta>(route)
   }
   getByIngredientes(ingredientes:string): Observable<Receta[]>{
     let route = this.apiUrl + '/por-ingredientes/' + ingredientes;

@@ -1,6 +1,6 @@
 <ng-container *ngIf="recetas.length > 0; else noHayRecetas">
   
-  <article class="recipe-block" *ngFor="let receta of recetas">
+  <article class="recipe-block" *ngFor="let receta of recetas" [routerLink]="['/app/detalleReceta', receta.id]">
     <div class="top-right">
         <span class="badge likes">
           Likes: {{ receta.likes }}

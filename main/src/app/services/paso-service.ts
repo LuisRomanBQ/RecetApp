@@ -10,7 +10,7 @@ export class PasoService {
   constructor(private client: HttpClient){}
 
   getPasos(receta:number){
-    return this.client.get<Paso[]>(this.apiUrl)
+    return this.client.get<Paso[]>(`${this.apiUrl}/${receta}`);
   }
   postPaso(nuevo:Paso){
     return this.client.post(this.apiUrl,nuevo)

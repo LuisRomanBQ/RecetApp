@@ -94,6 +94,8 @@ body {
 }
 
 .recipe-block {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     min-height: 180px;
     background: #ffffff;
     border-radius: 18px;
@@ -107,8 +109,12 @@ body {
     border-style: solid;
     padding: 2rem 1.5rem;
     position: relative;
+    user-select: none;
 }
-
+.recipe-block:hover {
+    transform: translateY(-4px); /* Se eleva un poquito */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
 .recipe-header {
     display: flex;
     justify-content: space-between;

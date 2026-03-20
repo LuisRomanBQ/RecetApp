@@ -8,10 +8,11 @@ import { forkJoin,Observable, switchMap } from 'rxjs';
 import { Etiqueta } from '../../models/Etiqueta';
 import { EtiquetaService } from '../../services/etiqueta-service';
 import { FiltroService } from '../../services/filtro-service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
