@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { RecetaCompleta } from '../../models/RecetaCompleta';
+import { RecetaCompleta } from '../../models/RecetaFull';
 import { RecipeDataAgg } from '../../services/recipe-data-agg';
 import { ComentarioService } from '../../services/comentario-service';
 import { Comentario, ComentarioAutor } from '../../models/Comentario';

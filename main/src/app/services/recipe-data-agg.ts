@@ -6,7 +6,7 @@ import { RecetaIngredienteService } from './rec-ing-service';
 import { RecIngSusService } from './rec-ing-sus-service';
 import { IngredienteService } from './ingrediente-service';
 import { ComentarioService } from './comentario-service';
-import { RecetaCompleta } from '../models/RecetaCompleta';
+import { RecetaCompleta } from '../models/RecetaFull';
 import { forkJoin, map, Observable, of, switchMap } from 'rxjs';
 
 @Injectable({
