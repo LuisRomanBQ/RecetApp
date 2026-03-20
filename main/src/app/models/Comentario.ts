@@ -1,7 +1,7 @@
 export interface Comentario{
     id: number;
     usuarioId: number;
-    receta: number;
+    recetaId: number;
     texto: string;
     fecha: Date;
 }

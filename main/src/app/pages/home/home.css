@@ -110,6 +110,7 @@ body {
     padding: 2rem 1.5rem;
     position: relative;
     user-select: none;
+    margin: 1.5rem;
 }
 .recipe-block:hover {
     transform: translateY(-4px); /* Se eleva un poquito */

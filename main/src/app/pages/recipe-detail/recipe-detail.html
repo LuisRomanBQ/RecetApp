@@ -58,6 +58,31 @@
       </div>
     </section>
   </div>
+  <section class="comments-section">
+  <hr class="separator">
+  <h3>Comentarios ({{ recipe.comentarios.length }})</h3>
+
+  <div class="comment-form-container">
+    <div class="user-avatar-placeholder">
+      <span>U</span> 
+    </div>
+    <div class="form-body">
+      <textarea 
+        [(ngModel)]="nuevoComentarioTexto"
+        placeholder="Escribe un comentario sobre esta receta..."
+        rows="3"
+        >
+      </textarea>
+      <div class="form-actions">
+        <button 
+          class="btn-publicar" 
+          [disabled]="!nuevoComentarioTexto.trim()"
+          (click)="publicarComentario()">
+          Publicar comentario
+        </button>
+      </div>
+    </div>
+  </div>
   <div class="comments-list">
   <div class="comment-card" *ngFor="let c of recipe.comentarios">
     <div class="comment-header">
@@ -70,5 +95,4 @@
   <div class="empty-comments" *ngIf="recipe.comentarios.length === 0">
     <p>Aún no hay comentarios. ¡Sé el primero en opinar!</p>
   </div>
-</div>
 </div>
