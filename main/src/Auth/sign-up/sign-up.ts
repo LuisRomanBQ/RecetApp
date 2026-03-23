@@ -21,17 +21,24 @@ biografia = "";
 constructor(private userService: UsuarioService, private router:Router){}
 
   validar(): boolean {
-
-    if(
-      this.nombres.trim() === "" ||
-      this.apellidos.trim() === "" ||
+    const soloLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+    const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(this.nombres.trim() === "" ||this.apellidos.trim() === "" ||
       this.correo.trim() === "" ||
-      this.contrasena.trim() === ""
-    ){
-      return false;
-    }
-
-    return true;
+      this.contrasena.trim() === ""){
+        alert("Favor de llenar los campos")
+         return false
+      }
+     
+    if(
+      !correoValido.test(this.correo) ||
+      !soloLetras.test(this.nombres) ||
+      !soloLetras.test(this.apellidos)
+      ){
+        alert("Introduzca datos validos")
+        return false;
+      }
+      return true;
   }
   registrarse(){
 
