@@ -53,8 +53,8 @@
     <legend>Ingredientes</legend>
 
     <div id="ingredientesContainer" class="d-flex flex-wrap gap-2 mb-3">
-      <div class="card-item-selected" *ngFor="let ing of seleccionados">
-        {{ing.nombre}} ({{ing.cantidad}} {{ing.unidad}})
+      <div class="card-item-selected">
+        
         <span class="remove-btn">×</span>
       </div>
     </div>
@@ -109,7 +109,7 @@
   </fieldset>
 </form>
 
-<div class="modal-overlay" *ngIf="mostrarModalIngredientes">
+<div class="modal-overlay">
   <div class="modal-card">
     <div class="modal-header-app">
       <h5 class="m-0">Buscar Ingrediente</h5>
@@ -118,8 +118,7 @@
     <div class="modal-body-app">
       <input type="text" class="form-control mb-3" placeholder="Filtrar por nombre...">
       <div class="filtro-scroll">
-        <div class="filtro-item" *ngFor="let item of catalogo">
-          {{item.nombre}}
+        <div class="filtro-item">
         </div>
       </div>
     </div>

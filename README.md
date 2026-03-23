@@ -31,9 +31,10 @@ El sistema está basado en las siguientes entidades principales:
 * Paso
 * Etiqueta
 * Comentario
+
 ---
 
-## 🔄 Funcionalidades principales (Back-End)
+##  Funcionalidades principales (Back-End)
 
 * Registro y gestión de usuarios.
 * Creación y administración de recetas.
