@@ -1,59 +1,103 @@
 # RecetApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
+##  básico y definición del proyecto
 
-## Development server
+**RecetApp** es una aplicación web orientada a la creación de una comunidad digital para personas interesadas en la cocina. Su objetivo principal es facilitar el descubrimiento de recetas, fomentar la interacción entre usuarios y simplificar el proceso de preparación mediante la organización estructurada de ingredientes, pasos y sugerencias.
 
-To start a local development server, run:
+La aplicación busca resolver dos problemáticas principales:
 
-```bash
-ng serve
+* Falta de inspiración sobre qué cocinar.
+* Dificultad para organizar ingredientes necesarios.
+
+El sistema permite a los usuarios consultar recetas, visualizar su contenido detallado e identificar posibles sustitutos de ingredientes, haciendo más flexible la preparación de platillos.
+---
+
+## Tecnologías utilizadas
+
+* **Backend:** ASP.NET Core (.NET 10)
+* **Base de datos:** SQL Server
+* **Documentación API:** Swagger (Swashbuckle)
+* **Lenguaje:** C
+* **UI:** Angular
+---
+
+## Modelo de datos
+
+El sistema está basado en las siguientes entidades principales:
+
+* Usuario
+* Receta
+* Ingrediente
+* Paso
+* Etiqueta
+* Comentario
+
+---
+
+##  Funcionalidades principales (Back-End)
+
+* Registro y gestión de usuarios.
+* Creación y administración de recetas.
+* Asociación de ingredientes con recetas.
+* Gestión de pasos de preparación.
+* Sistema de etiquetas para clasificación.
+* Comentarios en recetas.
+* Búsqueda de recetas por:
+
+  * Ingredientes disponibles
+  * Coincidencia parcial
+  * Coincidencia exacta (incluyendo sustitutos)
+---
+
+## Búsqueda inteligente de recetas
+
+El sistema permite:
+
+* Encontrar recetas que coincidan con ingredientes disponibles.
+* Considerar sustitutos de ingredientes definidos en la receta.
+* Filtrar recetas que puedan realizarse completamente con los ingredientes del usuario.
+---
+##  Pruebas de la API
+
+La API puede probarse mediante el navegador:
+
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+https://www.RecetApp.somee.com/{entidad}
 ```
+*Api:* https://github.com/LuisRomanBQ/RecetApp_API.git
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Desde ahí es posible ejecutar endpoints como:
 
-```bash
-ng generate --help
-```
+* Obtener recetas
+* Crear usuarios
+* Filtrar recetas por ingredientes
 
-## Building
+---
 
-To build the project run:
+## Estado del proyecto
 
-```bash
-ng build
-```
+Proyecto en desarrollo académico con enfoque en:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+* Modelado de base de datos
+* Implementación de lógica backend
+* Diseño de FrontEnd
 
-## Running unit tests
+---
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Posibles mejoras futuras
 
-```bash
-ng test
-```
+* Sistema de autenticación (JWT)
+* Favoritos y menús semanales
+* Integración con supermercados
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## Equipo
 
-```bash
-ng e2e
-```
+Proyecto desarrollado con fines académicos.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## Licencia
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Uso educativo.
