@@ -1,110 +1,216 @@
 <form id="uploadform" class="bg-light pb-5">
-  <div class="container-fluid py-4 bg-white shadow-sm mb-4 sticky-top">
+
+  <!-- HEADER -->
+  <div class="container-fluid py-3 bg-white shadow-sm mb-4 sticky-top">
     <div class="row align-items-center">
       <div class="col-md-8">
-        <h1 class="fw-bold text-dark">Subir Receta</h1>
+        <h1 class="fw-bold text-dark m-0">Subir Receta</h1>
       </div>
-       <div class="col-md-2 col-6 d-flex justify-content-end">
-          <button type="button" class="btn-app">
-            <img src="assets/Img/002-upload.png" alt="">
-            <span>Subir</span>
-          </button>
-        </div>
-        <div class="col-md-2 col-6 d-flex justify-content-end">
-          <button type="button" class="btn-app">
-            <img src="assets/Img/001-watch.png" alt="">
-            <span>Vista Previa</span>
-          </button>
-        </div>
+
+      <div class="col-md-4 d-flex justify-content-end gap-2">
+        <button type="button" class="btn-app" (click)="crearReceta()">
+          <img src="../Img/002-upload.png">
+          <span>Subir</span>
+        </button>
       </div>
     </div>
+  </div>
 
-  <fieldset class="container my-4 bg-white">
+  <!-- INFO -->
+  <fieldset class="container my-4">
     <legend>Información básica</legend>
+
     <div class="row g-3">
       <div class="col-md-6">
-        <label class="form-label">Título</label>
-        <input type="text" class="form-control" placeholder="Título de la receta...">
+        <label>Título</label>
+        <input type="text" class="form-control" placeholder="Título...">
       </div>
+
       <div class="col-md-6">
-        <label class="form-label">Descripción</label>
-        <input type="text" class="form-control" placeholder="Breve descripción...">
+        <label>Descripción</label>
+        <input type="text" class="form-control" placeholder="Descripción...">
       </div>
+
       <div class="col-md-4">
-        <label class="form-label">Tiempo (min)</label>
+        <label>Tiempo (min)</label>
         <input type="number" class="form-control">
       </div>
+
       <div class="col-md-4">
-        <label class="form-label">Porciones</label>
+        <label>Porciones</label>
         <input type="number" class="form-control">
       </div>
+
       <div class="col-md-4">
-        <label class="form-label">Dificultad</label>
+        <label>Dificultad</label>
         <select class="form-select">
-          <option value="facil">Fácil</option>
-          <option value="media">Media</option>
-          <option value="dificil">Difícil</option>
+          <option>Fácil</option>
+          <option>Media</option>
+          <option>Difícil</option>
         </select>
       </div>
     </div>
   </fieldset>
 
-  <fieldset class="container my-4 bg-white">
-    <legend>Ingredientes</legend>
+  <!-- INGREDIENTES -->
+  <fieldset class="container my-4">
+    <legend>
+      Ingredientes ({{ ingredientesFiltrados.filter(i => i.selected).length }})
+    </legend>
 
-    <div id="ingredientesContainer" class="d-flex flex-wrap gap-2 mb-3">
-      <div class="card-item-selected">
-        
-        <span class="remove-btn">×</span>
-      </div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <span class="text-muted">Agrega ingredientes a tu receta</span>
+
+      <button class="btn-app" (click)="abrirFiltro()">
+        + Agregar
+      </button>
     </div>
 
-    <div class="row g-3 align-items-end">
-      <div class="col-md-4">
-        <label class="form-label">Ingrediente</label>
-        <div class="fake-input">
-          
+    <div *ngFor="let ingrediente of ingredientesFiltrados.filter(i => i.selected)" class="ingrediente-card">
+
+      <div class="ingrediente-header">
+        <span>{{ ingrediente.nombre }}</span>
+
+        <button class="btn-remove" (click)="removerIngrediente(ingrediente)">
+          ✕
+        </button>
+      </div>
+
+      <div class="ingrediente-body">
+        <input class="form-control" [(ngModel)]="ingrediente.cantidad" placeholder="Cantidad" [ngModelOptions]="{standalone: true}">
+        <input class="form-control" [(ngModel)]="ingrediente.unidad" placeholder="Unidad" [ngModelOptions]="{standalone: true}">
+
+        <div class="switch-container">
+          <label>¿Sustituto?</label>
+          <label class="switch">
+            <input type="checkbox" [(ngModel)]="ingrediente.sustituto">
+            <span class="slider"></span>
+          </label>
         </div>
       </div>
-      <div class="col-md-2">
-        <input type="text" class="form-control" placeholder="Cantidad">
-      </div>
-      <div class="col-md-2">
-        <input type="text" class="form-control" placeholder="Unidad">
-      </div>
-      <div class="col-md-2 text-center">
-        <label class="d-block mb-1">¿Sustituto?</label>
-        <label class="switch m-0">
-          <input type="checkbox">
-          <span class="slider"></span>
-        </label>
-      </div>
-      <div class="col-md-2">
-        <button type="button" class="btn-app w-100">
-          <img src="assets/Img/002-add.png" alt="">
-          <span>Agregar</span>
-        </button>
-      </div>
+
     </div>
   </fieldset>
 
   <fieldset class="container my-4 bg-white">
-    <legend>Etiquetas</legend>
-    
-    <div class="tags-selected mb-3">
-      <span class="badge-tag active">
-        <small>×</small>
-      </span>
+    <legend>Pasos</legend>
+
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <p class="m-0 text-muted">Describe el proceso paso a paso</p>
+
+      <button type="button" class="btn-app btn-primary-app" (click)="agregarPaso()">
+        <img src="../Img/002-add.png">
+        <span>Agregar paso</span>
+      </button>
     </div>
 
-    <div class="sugerencias-box p-3 border rounded">
-      <p class="small text-muted mb-2">Sugerencias (haz click para agregar):</p>
-      <div class="d-flex flex-wrap gap-2">
-        <span class="badge-tag suggestion"></span>
-        <button type="button" class="btn-app w-100">
-          Ver todas las etiquetas...
-        </button>
+    <!-- LISTA DE PASOS -->
+    <div *ngFor="let paso of pasos; let i = index" class="paso-item">
+
+      <!-- NUMERO -->
+      <div class="paso-numero">
+        {{ i + 1 }}
       </div>
+
+      <!-- INPUT -->
+      <input type="text"
+            class="form-control paso-input"
+            placeholder="Describe este paso..."
+            [(ngModel)]="paso.descripcion">
+
+      <!-- ELIMINAR -->
+      <button type="button"
+              class="btn-remove"
+              (click)="eliminarPaso(i)">
+        ✕
+      </button>
+
+    </div>
+
+  </fieldset>
+  <!-- ETIQUETAS -->
+  <fieldset class="container my-4">
+    <legend>Etiquetas  ({{ etiquetasFiltradas.filter(e => e.selected).length }})</legend>
+    
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <span class="text-muted">Agrega etiquetas a tu receta</span>
+      <button class="btn-app mb-3" (click)="abrirFiltro()">
+        + Agregar
+      </button>
+    </div>
+
+    <div class="d-flex flex-wrap gap-2">
+      <span class="badge-tag active"
+            *ngFor="let etiqueta of etiquetasFiltradas.filter(e => e.selected)"
+            (click)="removerEtiqueta(etiqueta)">
+        {{ etiqueta.nombre }} ✕
+      </span>
     </div>
   </fieldset>
+
 </form>
+
+<!-- MODAL -->
+<div *ngIf="isOpen" class="modal-container">
+  <div class="overlay" (click)="cerrarFiltro()"></div>
+
+  <div class="modal-content">
+    <h3>Agregar elementos</h3>
+
+    <!-- INGREDIENTES -->
+    <section>
+      <p><strong>Ingredientes</strong></p>
+
+      <div class="search-mini">
+        <input type="search" [(ngModel)]="searchI" placeholder="Buscar ingredientes...">
+
+        <button type="button">
+          <img src="../../Img/004-search.png">
+        </button>
+
+        <button type="button" (click)="deselectI()">
+          <img src="../../Img/x.png">
+        </button>
+      </div>
+
+      <div class="chip-container">
+        <span class="chip"
+              *ngFor="let ing of ingredientesFiltrados"
+              [class.selected]="ing.selected"
+              (click)="toggleIngrediente(ing)">
+          {{ ing.nombre }}
+        </span>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- ETIQUETAS -->
+    <section>
+      <p><strong>Etiquetas</strong></p>
+
+      <div class="search-mini">
+        <input type="search" [(ngModel)]="searchE" placeholder="Buscar etiquetas...">
+        
+        <button type="button">
+          <img src="../../Img/004-search.png">
+        </button>
+
+        <button type="button" (click)="deselectE()">
+          <img src="../../Img/x.png">
+        </button>
+      </div>
+
+      <div class="chip-container">
+        <span class="chip"
+              *ngFor="let tag of etiquetasFiltradas"
+              [class.selected]="tag.selected"
+              (click)="toggleEtiqueta(tag)">
+          {{ tag.nombre }}
+        </span>
+      </div>
+    </section>
+
+  </div>
+</div>
